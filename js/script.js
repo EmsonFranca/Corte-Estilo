@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Menu Mobile
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav');
+    
+    if(menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('active');
+        });
+    }
+    
+    // Fechar menu ao clicar em um link
+    const navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            if(nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        });
+    });
+    
     // Validação do formulário de agendamento
     const formAgendamento = document.getElementById('form-agendamento');
     
@@ -17,8 +37,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Simulação de envio
                 alert('Agendamento realizado com sucesso! Entraremos em contato para confirmação.');
                 formAgendamento.reset();
-                
-                // Aqui você pode adicionar AJAX para enviar os dados para o servidor
             } else {
                 alert('Por favor, preencha todos os campos.');
             }
@@ -48,8 +66,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     if(dataInput && horarioInput) {
         // Definir data mínima como hoje
-        const hoje = new Date().toISOString().split('T')[0];
-        dataInput.setAttribute('min', hoje);
+        const hoje = new Date();
+        const dd = String(hoje.getDate()).padStart(2, '0');
+        const mm = String(hoje.getMonth() + 1).padStart(2, '0');
+        const yyyy = hoje.getFullYear();
+        dataInput.setAttribute('min', `${yyyy}-${mm}-${dd}`);
         
         // Ajustar horários disponíveis conforme o dia da semana
         dataInput.addEventListener('change', function() {
@@ -71,4 +92,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Ajustar altura do hero para dispositivos móveis
+    function adjustHeroHeight() {
+        const hero = document.querySelector('.hero');
+        if(hero) {
+            hero.style.height = window.innerHeight + 'px';
+        }
+    }
+    
+    window.addEventListener('resize', adjustHeroHeight);
+    adjustHeroHeight();
 });
