@@ -9,6 +9,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tagesschrift&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="./img/logo.png" type="image/x-icon">
+    <link rel="manifest" href="/manifest.json">
+    <script>
+    if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("serviceworker.js");
+    }
+    </script>
 </head>
 <body>
     <header>

@@ -1,0 +1,27 @@
+
+{
+  "background_color": "#4f5963",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Barbeiaria",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "Corte&amp;Estilo",
+  "start_url": "index.html",
+  "theme_color": "#4f5963",
+  "id": "moc.ppayfilpma.2vawua5co8aa1d.niam",
+  "icons": [
+    {
+      "src": "./img/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "./img/logo.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+}
